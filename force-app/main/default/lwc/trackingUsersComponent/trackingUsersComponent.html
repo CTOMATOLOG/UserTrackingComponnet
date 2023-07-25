@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-card__body">
+        <ul class="slds-grid slds-wrap">
+            <li class="slds-p-horizontal_medium  slds-size_1-of-3"   for:each={userList} for:item="user_i" key={user_i.Id}  for:index="index">
+                <div class="popup" onmouseleave={hideUserDetail} data-id={user_i.Id} >
+                    <article>
+                        <div class="slds-media__body" onclick={showUserDetail} data-id={user_i.id} >
+                            <div class="slds-tile__detail">
+                                <c-tracking-user-record-component name={user_i.Name} alias={user_i.Alias} is-active={user_i.isActive} status={user_i.status}></c-tracking-user-record-component>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="popup-content">
+                        <lightning-card class="slds-card" icon-name="standard:attach" title={user_i.Name}>
+                            <lightning-button
+                            data-id={user_i.Id}
+                            variant="brand"
+                            onclick={handlerNavigate}
+                            class="slds-p-top_medium slds-align_absolute-center"
+                            label="Open user"
+                            slot="actions"
+                            ></lightning-button>   
+                            <div if:true={user_i.havePages}>
+                                <p class="accounts">The last opened Accounts:</p>
+                                <div for:each={user_i.accountList} for:item="acc_i" key={acc_i.Id}  for:index="index">
+                                        <div class="accounts" ><a data-id={acc_i.Id}  onclick={handleAccountClick}>{acc_i.Name}</a></div>
+                                </div> 
+                            </div>
+                        </lightning-card>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+.slds-tile__detail{
+    margin-bottom: 5px;
+}
+.popup {
+    position: relative;
+}
+.popup-content {
+    top: 0px;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+.popup-content .slds-align_absolute-center {
+    display: flex;
+    justify-content: center; /* Горизонтальне вирівнювання по центру */
+    align-items: center; /* Вертикальне вирівнювання по центру */
+    padding-left: 20px;
+    padding-bottom: 16px;
+}
+.popup-content .slds-card {
+    border-style: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+}
+.accounts{
+    margin-left: 10px;
+    font-size: 15px;
+}
